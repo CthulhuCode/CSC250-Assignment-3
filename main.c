@@ -17,6 +17,8 @@ int main()
         //Print the grid numbers before the game starts (call function)
         ////Only print once at the beginning of each game
 
+        printBoard(gridNums[3][3]);
+
 
         //Game Logic
 
