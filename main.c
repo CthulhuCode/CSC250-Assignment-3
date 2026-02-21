@@ -9,7 +9,8 @@ int main()
         int player2 = 0;        //Track player 2's wins
         int input;     //User input. I changed this to an int since we are comparing the numbers the user entered to grid numbers.
         char keepPlaying;
-        
+        int cat = 0;//Track ties
+
         printf("-----------------------\n");
         printf("----  Tic-Tac-Toe  ----\n");
         printf("-----------------------\n");
@@ -27,8 +28,29 @@ int main()
                 while(moveCounter < 10)
                 {
                         board[3][3] = enterMoves(turnCheck(moveCounter), 3, 3, gridNums, board, input);
-                        moveCounter++;
                         printGameBoard(3, 3, board);
+                        int winner = checkWin(3, 3, board, turnCheck(moveCounter));
+                        if (winner != -1)
+                        {
+                                if (winner == 1)
+                                {
+                                        player1++;
+                                        printf("Player 1 wins!\n");
+                                        break;
+                                }
+                                else if (winner == 0)//numMoves/2 has a remainder of 0
+                                {
+                                        player2++;
+                                        printf("Player 2 wins!\n");
+                                        break;
+                                }
+                        }
+                        moveCounter++;
+                }
+                if (moveCounter==10)
+                {
+                        cat++;
+                        printf("Cat's game (tie)\n");
                 }
 
                 //Prompt players for spots and save

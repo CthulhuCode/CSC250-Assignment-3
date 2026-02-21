@@ -6,6 +6,7 @@ void printGameBoard(int rows, int columns, char board[][3]);
 int clearBoard(int rows, int columns, char board[][3]);
 int turnCheck(int moveNum);
 char enterMoves(int playersTurn, int rows, int columns, int gridNums[][3], char board[][3], int input);
-
+int checkWin(int rows, int columns, char board[][3], int playersTurn);
+void saveScores(int oneWins, int twoWins, int cats);
 
 #endif

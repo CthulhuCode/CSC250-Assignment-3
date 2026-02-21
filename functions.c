@@ -71,3 +71,57 @@ char enterMoves(int playersTurn, int rows, int columns, int gridNums[][3], char 
     }
     return board[3][3];
 }
+
+int checkWin(int rows, int columns, char board[][3], int playersTurn)
+{
+    if (board[0][0] == 'X' && board[0][1] == 'X' && board [0][2] == 'X'|| board[0][0] == 'O' && board[0][1] == 'O' && board [0][2] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[1][0] == 'X' && board[1][1] == 'X' && board [1][2] == 'X'|| board[1][0] == 'O' && board[1][1] == 'O' && board [1][2] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[2][0] == 'X' && board[2][1] == 'X' && board [2][2] == 'X'|| board[2][0] == 'O' && board[2][1] == 'O' && board [2][2] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[0][0] == 'X' && board[1][0] == 'X' && board [2][0] == 'X'|| board[0][0] == 'O' && board[1][0] == 'O' && board [2][0] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[0][1] == 'X' && board[1][1] == 'X' && board [2][1] == 'X'|| board[0][1] == 'O' && board[1][1] == 'O' && board [2][1] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[0][2] == 'X' && board[1][2] == 'X' && board [2][2] == 'X'|| board[0][2] == 'O' && board[1][2] == 'O' && board [2][2] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[0][0] == 'X' && board[1][1] == 'X' && board [2][2] == 'X'|| board[0][0] == 'O' && board[1][1] == 'O' && board [2][2] == 'O')
+    {
+        return playersTurn;
+    }
+    else if (board[0][2] == 'X' && board[1][1] == 'X' && board [2][0] == 'X'|| board[0][2] == 'O' && board[1][1] == 'O' && board [2][0] == 'O')
+    {
+        return playersTurn;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+void saveScores(int oneWins, int twoWins, int cats)
+{
+    FILE *fp;
+    fp = fopen("scores.txt", "w");
+    if (fp == NULL)
+    {
+        printf("Error opening file. Terminating program...\n");
+    }
+    fprintf(fp, "Player 1 won %d times.\n", oneWins);
+    fprintf(fp, "Player 2 won %d times.\n", twoWins);
+    fprintf(fp, "There were %d cat's games.", cats);
+    fclose(fp);
+}
