@@ -30,7 +30,7 @@ int main()
                         board[3][3] = enterMoves(turnCheck(moveCounter), 3, 3, gridNums, board, input);
                         printGameBoard(3, 3, board);
                         int winner = checkWin(3, 3, board, turnCheck(moveCounter));
-                        if (winner != -1)
+                        if (winner != -1)//no winner yet
                         {
                                 if (winner == 1)
                                 {
@@ -62,5 +62,7 @@ int main()
                 printf("Do you want to play again? (y/n): ");
                 scanf(" %c", &keepPlaying);
         }
+        saveScores(player1, player2, cat);
+        printf("Thank you for playing! To view final results, open the scores.txt file.\n");
         return 0;
 }

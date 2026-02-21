@@ -122,6 +122,6 @@ void saveScores(int oneWins, int twoWins, int cats)
     }
     fprintf(fp, "Player 1 won %d times.\n", oneWins);
     fprintf(fp, "Player 2 won %d times.\n", twoWins);
-    fprintf(fp, "There were %d cat's games.", cats);
+    fprintf(fp, "There were %d cat's games.\n", cats);
     fclose(fp);
 }
