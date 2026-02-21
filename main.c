@@ -8,20 +8,20 @@ int main()
         int player1 = 0;        //Track player 1's wins
         int player2 = 0;        //Track player 2's wins
         int input;     //User input. I changed this to an int since we are comparing the numbers the user entered to grid numbers.
-        char keepPlaying = 'y';
-        int moveCounter = 1; //Determine Cat's game.
-
+        char keepPlaying;
+        
         printf("-----------------------\n");
         printf("----  Tic-Tac-Toe  ----\n");
         printf("-----------------------\n");
         //Print the grid numbers before the game starts (call function)
         ////Only print once at the beginning of each game
-        while(keepPlaying == 'y')
+        while(keepPlaying != 'n')
         {
                 //Fill board array with dashes
                 clearBoard(3, 3, board);//board is now empty.
                 printBoard(3, 3, gridNums);
                 printGameBoard(3, 3, board);
+                int moveCounter = 1; //Determine Cat's game.
 
                 //Game Logic
                 while(moveCounter < 10)
